@@ -1,32 +1,7 @@
-import { Schema, State } from "@livestore/livestore";
+import { makeSchema, State } from "@livestore/livestore";
+import * as events from "./events";
+import { materializers } from "./materializers";
+import * as tables from "./tables";
 
-/**
- * ?: How to define joins between tables?
- */
-
-const NonNegativeNumber = Schema.Number.pipe(Schema.nonNegative());
-
-// ?: How are `schema` enforced/checked?
-export const foods = State.SQLite.table({
-  name: "food",
-  // TODO: Make `columns` type safe based on table `columns`
-  indexes: [{ columns: ["name"], name: "name", isUnique: true }],
-  columns: {
-    id: State.SQLite.text({ primaryKey: true, schema: Schema.UUID }),
-    // TODO: Add jsdoc for `nullable` as `false` by default
-    name: State.SQLite.text({ schema: Schema.NonEmptyString }),
-    calories: State.SQLite.integer({ default: 0, schema: NonNegativeNumber }),
-    protein: State.SQLite.integer({ default: 0, schema: NonNegativeNumber }),
-    carbs: State.SQLite.integer({ default: 0, schema: NonNegativeNumber }),
-    fat: State.SQLite.integer({ default: 0, schema: NonNegativeNumber }),
-  },
-});
-
-export const meals = State.SQLite.table({
-  name: "meal",
-  columns: {
-    id: State.SQLite.text({ primaryKey: true, schema: Schema.UUID }),
-    foodId: State.SQLite.text({ schema: Schema.UUID }),
-    quantity: State.SQLite.integer({ default: 0, schema: NonNegativeNumber }),
-  },
-});
+const state = State.SQLite.makeState({ tables, materializers });
+export const schema = makeSchema({ events, state });

@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@livestore/adapter-web':
+        specifier: 0.3.0-dev.33
+        version: 0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)
       '@livestore/livestore':
         specifier: 0.3.0-dev.33
-        version: 0.3.0-dev.33(egopbnrfjw3iefbjh5i4dp73mi)
+        version: 0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)
+      '@livestore/react':
+        specifier: 0.3.0-dev.33
+        version: 0.3.0-dev.33(jwztlxq73jtqdwnknobtlrpyzu)
       '@tanstack/react-router':
         specifier: ^1.114.3
         version: 1.116.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -206,18 +212,26 @@ packages:
       ws:
         optional: true
 
-  '@effect/opentelemetry@0.39.19':
-    resolution: {integrity: sha512-648f/JCZ0iuYSl6Qxa8i40RX3W9TcT3agDgESVkBLMr8JesQeI+zfc5KReyIMouXOyuuKhNXEBr40s6S3FmLgw==}
+  '@effect/opentelemetry@0.46.6':
+    resolution: {integrity: sha512-e1KKvi511pPaSQol3Wa1lyxaSp5W/1aVyYLlawOUMAqBAIUZpXtbx7w0u8JOhL2XfhWgAAFhgzm8+FdQEMjggg==}
     peerDependencies:
-      '@opentelemetry/api': ^1.6
-      '@opentelemetry/resources': ^1.22
-      '@opentelemetry/sdk-metrics': ^1.22
-      '@opentelemetry/sdk-trace-base': ^1.22
-      '@opentelemetry/sdk-trace-node': ^1.22
-      '@opentelemetry/sdk-trace-web': ^1.22
-      '@opentelemetry/semantic-conventions': ^1.24.1
-      effect: ^3.10.19
+      '@effect/platform': ^0.80.10
+      '@opentelemetry/api': ^1.9
+      '@opentelemetry/resources': ^2.0.0
+      '@opentelemetry/sdk-logs': '*'
+      '@opentelemetry/sdk-metrics': ^2.0.0
+      '@opentelemetry/sdk-trace-base': ^2.0.0
+      '@opentelemetry/sdk-trace-node': ^2.0.0
+      '@opentelemetry/sdk-trace-web': ^2.0.0
+      '@opentelemetry/semantic-conventions': ^1.30.0
+      effect: ^3.14.10
     peerDependenciesMeta:
+      '@opentelemetry/api':
+        optional: true
+      '@opentelemetry/resources':
+        optional: true
+      '@opentelemetry/sdk-logs':
+        optional: true
       '@opentelemetry/sdk-metrics':
         optional: true
       '@opentelemetry/sdk-trace-base':
@@ -227,11 +241,11 @@ packages:
       '@opentelemetry/sdk-trace-web':
         optional: true
 
-  '@effect/platform-browser@0.48.31':
-    resolution: {integrity: sha512-Yza016Nm//8UeRNQdoUU6kFxspRfAPIC5twLBZKxDeTopov+Vx2XdiQ4aUq/7mdDyFVNnL0Whehnti9xkvCQXw==}
+  '@effect/platform-browser@0.59.8':
+    resolution: {integrity: sha512-PRRSXoT3s/zrLNKKLujvhQ1vH6P88rXSCW0Jc8RNRXN/3DVSCE1WfvAZ8lYD05r6Crj5eTpDctJbUuGvIFuSOw==}
     peerDependencies:
-      '@effect/platform': ^0.69.31
-      effect: ^3.10.19
+      '@effect/platform': ^0.80.8
+      effect: ^3.14.8
 
   '@effect/platform-bun@0.60.20':
     resolution: {integrity: sha512-9G9ThbMIOSx6MmkTlX4KHQ6Z8MosKtEBQuKVUDcUrAh80HDove7iD1JuhRKhV2fNdeH6mxo4Ch2sUeQpbkBS/g==}
@@ -469,11 +483,25 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
+  '@livestore/adapter-web@0.3.0-dev.33':
+    resolution: {integrity: sha512-ekht7uq3AV3BvuUTflhM4xhIP7X28yiZjmOpDr8ErKR6PdxePCF2vqquDxASozkJlvw2/TtrDV8oUmmsXxzysw==}
+
   '@livestore/common@0.3.0-dev.33':
     resolution: {integrity: sha512-RzeVT9ftu7BexGCuUXBNPodQAgF0GwPvq54D7RCeJ35hW6BPkUoLVPSxGGXb/zLB0Ukx93T8iKRwKGDqRKkv4g==}
 
+  '@livestore/devtools-web-common@0.3.0-dev.33':
+    resolution: {integrity: sha512-Cynl6/vnHa9P0TinaVO5QIilcm5rNN1LO6mFSBPw/BSkyR9AHEC9E2AyNgD6ZLFEXfy+lMK14ig/b6UNMsx/0A==}
+
   '@livestore/livestore@0.3.0-dev.33':
     resolution: {integrity: sha512-1y44VFXMMBHVF59jc5xAb89us9I/06OxtEGeELel1LlDSJ7Yh7UXIIHUCaBlrsml7hNFC/Stut7nCc+fSLeQjQ==}
+
+  '@livestore/react@0.3.0-dev.33':
+    resolution: {integrity: sha512-tWk4VDIk0cC0cM6SaqcL2o+uK6NQtj3Ry5WbbTNqTzYXGLAU84gy9Jsra+V9IDvjCGEye4K3XVxvSC6eebPvAw==}
+    peerDependencies:
+      react: ~19.0.0
+
+  '@livestore/sqlite-wasm@0.3.0-dev.33':
+    resolution: {integrity: sha512-HQh2TNANSQ+wKJmykB/6+LvGdMA6QO8wVkfJuQNBkgBApWRuhCLLltwaHCUtM1iYHZkkpvtG6/dCG3aSA/Lzfg==}
 
   '@livestore/utils@0.3.0-dev.33':
     resolution: {integrity: sha512-QF5LzXL4fxGQqc+ZB3cNVUA/ovbCIxz4sK12ouTfn+FFIGnNsWhBvtGhbAwMWEpQ57qlEZLCB5pIe2h9DLzYkQ==}
@@ -494,6 +522,12 @@ packages:
       '@effect/vitest': ~0.20.8
       '@opentelemetry/api': ~1.9.0
       effect: ~3.14.8
+
+  '@livestore/wa-sqlite@1.0.5-dev.2':
+    resolution: {integrity: sha512-i7tKFEp0m3+4tGLV9Z5eAr/3RZPuNOyuf4NaQ/ygF2KwzlHc3TnqouPuE2sMH06r3soXIilWYND/x0eT8x6D6Q==}
+
+  '@livestore/webmesh@0.3.0-dev.33':
+    resolution: {integrity: sha512-xV4cX3EDG+87bHOW0lDfXxfmN0q7PHAnfK7ddQjRqVOAVgcvNbZVhtwg6Qlw6yp3QLyzHhDpNb/ZP/0D8JbrjQ==}
 
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
     resolution: {integrity: sha512-QZHtlVgbAdy2zAqNA9Gu1UpIuI8Xvsd1v8ic6B2pZmeFnFcMWiPLfWXh7TVw4eGEZ/C9TH281KwhVoeQUKbyjw==}
@@ -528,22 +562,6 @@ packages:
   '@opentelemetry/api@1.9.0':
     resolution: {integrity: sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==}
     engines: {node: '>=8.0.0'}
-
-  '@opentelemetry/core@1.30.1':
-    resolution: {integrity: sha512-OOCM2C/QIURhJMuKaekP3TRBxBKxG/TWWA0TL2J6nXUtDnuCtccy49LUJF8xPFXMX+0LMcxFpCo8M9cGY1W6rQ==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      '@opentelemetry/api': '>=1.0.0 <1.10.0'
-
-  '@opentelemetry/resources@1.30.1':
-    resolution: {integrity: sha512-5UxZqiAgLYGFjS4s9qm5mBVo433u+dSPUFWVWXmLAD4wB65oMCoXaJP1KJa9DIYYMeHu3z4BZcStG3LC593cWA==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      '@opentelemetry/api': '>=1.0.0 <1.10.0'
-
-  '@opentelemetry/semantic-conventions@1.28.0':
-    resolution: {integrity: sha512-lp4qAiMTD4sNWW4DbKLBkfiMZ4jbAboJIGOQr5DvciMRI494OapieI9qiODpOt0XBr1LjIDy1xAGAnVs5supTA==}
-    engines: {node: '>=14'}
 
   '@opentelemetry/semantic-conventions@1.32.0':
     resolution: {integrity: sha512-s0OpmpQFSfMrmedAn9Lhg4KWJELHCU6uU9dtIJ28N8UGhf9Y55im5X8fEzwhwDwiSqN+ZPSNrDJF7ivf/AuRPQ==}
@@ -1671,14 +1689,15 @@ snapshots:
       '@effect/platform-node': 0.76.20(@effect/cluster@0.29.20)(@effect/platform@0.69.31(effect@3.14.10))(@effect/rpc@0.55.15(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10))(@effect/sql@0.33.10)(effect@3.14.10)
       ws: 8.18.1
 
-  '@effect/opentelemetry@0.39.19(@opentelemetry/api@1.9.0)(@opentelemetry/resources@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/semantic-conventions@1.32.0)(effect@3.14.10)':
+  '@effect/opentelemetry@0.46.6(@effect/platform@0.69.31(effect@3.14.10))(@opentelemetry/api@1.9.0)(@opentelemetry/semantic-conventions@1.32.0)(effect@3.14.10)':
     dependencies:
-      '@opentelemetry/api': 1.9.0
-      '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.0)
+      '@effect/platform': 0.69.31(effect@3.14.10)
       '@opentelemetry/semantic-conventions': 1.32.0
       effect: 3.14.10
+    optionalDependencies:
+      '@opentelemetry/api': 1.9.0
 
-  '@effect/platform-browser@0.48.31(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10)':
+  '@effect/platform-browser@0.59.8(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10)':
     dependencies:
       '@effect/platform': 0.69.31(effect@3.14.10)
       effect: 3.14.10
@@ -1857,9 +1876,34 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@livestore/common@0.3.0-dev.33(egopbnrfjw3iefbjh5i4dp73mi)':
+  '@livestore/adapter-web@0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)':
     dependencies:
-      '@livestore/utils': 0.3.0-dev.33(m4x6u2svb4mtjrea3nr6j3oaye)
+      '@livestore/common': 0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)
+      '@livestore/devtools-web-common': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
+      '@livestore/sqlite-wasm': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
+      '@livestore/utils': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
+      '@livestore/webmesh': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
+      '@opentelemetry/api': 1.9.0
+    transitivePeerDependencies:
+      - '@effect/cli'
+      - '@effect/cluster'
+      - '@effect/experimental'
+      - '@effect/opentelemetry'
+      - '@effect/platform'
+      - '@effect/platform-browser'
+      - '@effect/platform-bun'
+      - '@effect/platform-node'
+      - '@effect/printer'
+      - '@effect/printer-ansi'
+      - '@effect/rpc'
+      - '@effect/sql'
+      - '@effect/typeclass'
+      - '@effect/vitest'
+      - effect
+
+  '@livestore/common@0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)':
+    dependencies:
+      '@livestore/utils': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
       '@opentelemetry/api': 1.9.0
       graphology: 0.26.0-alpha1(graphology-types@0.24.8)
       graphology-dag: 0.4.1(graphology-types@0.24.8)
@@ -1881,10 +1925,33 @@ snapshots:
       - '@effect/vitest'
       - effect
 
-  '@livestore/livestore@0.3.0-dev.33(egopbnrfjw3iefbjh5i4dp73mi)':
+  '@livestore/devtools-web-common@0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)':
     dependencies:
-      '@livestore/common': 0.3.0-dev.33(egopbnrfjw3iefbjh5i4dp73mi)
-      '@livestore/utils': 0.3.0-dev.33(m4x6u2svb4mtjrea3nr6j3oaye)
+      '@livestore/common': 0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)
+      '@livestore/utils': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
+      '@livestore/webmesh': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
+    transitivePeerDependencies:
+      - '@effect/cli'
+      - '@effect/cluster'
+      - '@effect/experimental'
+      - '@effect/opentelemetry'
+      - '@effect/platform'
+      - '@effect/platform-browser'
+      - '@effect/platform-bun'
+      - '@effect/platform-node'
+      - '@effect/printer'
+      - '@effect/printer-ansi'
+      - '@effect/rpc'
+      - '@effect/sql'
+      - '@effect/typeclass'
+      - '@effect/vitest'
+      - '@opentelemetry/api'
+      - effect
+
+  '@livestore/livestore@0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)':
+    dependencies:
+      '@livestore/common': 0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)
+      '@livestore/utils': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
       '@opentelemetry/api': 1.9.0
     transitivePeerDependencies:
       - '@effect/cli'
@@ -1903,14 +1970,61 @@ snapshots:
       - '@effect/vitest'
       - effect
 
-  '@livestore/utils@0.3.0-dev.33(m4x6u2svb4mtjrea3nr6j3oaye)':
+  '@livestore/react@0.3.0-dev.33(jwztlxq73jtqdwnknobtlrpyzu)':
+    dependencies:
+      '@livestore/common': 0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)
+      '@livestore/livestore': 0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)
+      '@livestore/utils': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
+      '@opentelemetry/api': 1.9.0
+      react: 19.1.0
+    transitivePeerDependencies:
+      - '@effect/cli'
+      - '@effect/cluster'
+      - '@effect/experimental'
+      - '@effect/opentelemetry'
+      - '@effect/platform'
+      - '@effect/platform-browser'
+      - '@effect/platform-bun'
+      - '@effect/platform-node'
+      - '@effect/printer'
+      - '@effect/printer-ansi'
+      - '@effect/rpc'
+      - '@effect/sql'
+      - '@effect/typeclass'
+      - '@effect/vitest'
+      - effect
+
+  '@livestore/sqlite-wasm@0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)':
+    dependencies:
+      '@livestore/common': 0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)
+      '@livestore/utils': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
+      '@livestore/wa-sqlite': 1.0.5-dev.2
+    transitivePeerDependencies:
+      - '@effect/cli'
+      - '@effect/cluster'
+      - '@effect/experimental'
+      - '@effect/opentelemetry'
+      - '@effect/platform'
+      - '@effect/platform-browser'
+      - '@effect/platform-bun'
+      - '@effect/platform-node'
+      - '@effect/printer'
+      - '@effect/printer-ansi'
+      - '@effect/rpc'
+      - '@effect/sql'
+      - '@effect/typeclass'
+      - '@effect/vitest'
+      - '@opentelemetry/api'
+      - effect
+
+  '@livestore/utils@0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)':
     dependencies:
       '@effect/cli': 0.59.10(@effect/platform@0.69.31(effect@3.14.10))(@effect/printer-ansi@0.42.10(@effect/typeclass@0.33.10(effect@3.14.10))(effect@3.14.10))(@effect/printer@0.42.10(@effect/typeclass@0.33.10(effect@3.14.10))(effect@3.14.10))(effect@3.14.10)
       '@effect/cluster': 0.29.20(@effect/platform@0.69.31(effect@3.14.10))(@effect/rpc@0.55.15(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10))(@effect/sql@0.33.10)(effect@3.14.10)
       '@effect/experimental': 0.30.16(@effect/platform-node@0.76.20)(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10)(ws@8.18.1)
-      '@effect/opentelemetry': 0.39.19(@opentelemetry/api@1.9.0)(@opentelemetry/resources@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/semantic-conventions@1.32.0)(effect@3.14.10)
+      '@effect/opentelemetry': 0.46.6(@effect/platform@0.69.31(effect@3.14.10))(@opentelemetry/api@1.9.0)(@opentelemetry/semantic-conventions@1.32.0)(effect@3.14.10)
       '@effect/platform': 0.69.31(effect@3.14.10)
-      '@effect/platform-browser': 0.48.31(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10)
+      '@effect/platform-browser': 0.59.8(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10)
       '@effect/platform-bun': 0.60.20(@effect/cluster@0.29.20(@effect/platform@0.69.31(effect@3.14.10))(@effect/rpc@0.55.15(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10))(@effect/sql@0.33.10)(effect@3.14.10))(@effect/platform@0.69.31(effect@3.14.10))(@effect/rpc@0.55.15(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10))(@effect/sql@0.33.10(@effect/experimental@0.30.16)(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10))(effect@3.14.10)
       '@effect/platform-node': 0.76.20(@effect/cluster@0.29.20)(@effect/platform@0.69.31(effect@3.14.10))(@effect/rpc@0.55.15(@effect/platform@0.69.31(effect@3.14.10))(effect@3.14.10))(@effect/sql@0.33.10)(effect@3.14.10)
       '@effect/printer': 0.42.10(@effect/typeclass@0.33.10(effect@3.14.10))(effect@3.14.10)
@@ -1925,6 +2039,30 @@ snapshots:
       msgpackr: 1.11.2
       nanoid: 5.1.3
       pretty-bytes: 6.1.1
+
+  '@livestore/wa-sqlite@1.0.5-dev.2': {}
+
+  '@livestore/webmesh@0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)':
+    dependencies:
+      '@livestore/common': 0.3.0-dev.33(ui4elr3sslrfslt3cgs5pbpqeq)
+      '@livestore/utils': 0.3.0-dev.33(hh4lzvd4dosiud2mqubzjr2p3q)
+    transitivePeerDependencies:
+      - '@effect/cli'
+      - '@effect/cluster'
+      - '@effect/experimental'
+      - '@effect/opentelemetry'
+      - '@effect/platform'
+      - '@effect/platform-browser'
+      - '@effect/platform-bun'
+      - '@effect/platform-node'
+      - '@effect/printer'
+      - '@effect/printer-ansi'
+      - '@effect/rpc'
+      - '@effect/sql'
+      - '@effect/typeclass'
+      - '@effect/vitest'
+      - '@opentelemetry/api'
+      - effect
 
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
     optional: true
@@ -1945,19 +2083,6 @@ snapshots:
     optional: true
 
   '@opentelemetry/api@1.9.0': {}
-
-  '@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0)':
-    dependencies:
-      '@opentelemetry/api': 1.9.0
-      '@opentelemetry/semantic-conventions': 1.28.0
-
-  '@opentelemetry/resources@1.30.1(@opentelemetry/api@1.9.0)':
-    dependencies:
-      '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/semantic-conventions': 1.28.0
-
-  '@opentelemetry/semantic-conventions@1.28.0': {}
 
   '@opentelemetry/semantic-conventions@1.32.0': {}
 
