@@ -29,3 +29,8 @@ Fixed by installing `@livestore/peer-deps`:
 ```sh
 pnpm add @livestore/peer-deps
 ```
+
+> Got this error when launching the app with the current configuration:
+> ```sh
+> LiveStore.UnexpectedError: { "cause": RuntimeError: Aborted(CompileError: WebAssembly.instantiate(): expected magic word 00 61 73 6d, found 3c 21 64 6f @+0). Build with -sASSERTIONS for more info., "note": undefined, "payload": undefined }
+>
