@@ -1,0 +1,13 @@
+{
+  "framework": "react",
+  "typescript": true,
+  "projectName": "live-store-initial-example",
+  "mode": "file-router",
+  "tailwind": false,
+  "packageManager": "pnpm",
+  "toolchain": "none",
+  "variableValues": {},
+  "git": true,
+  "version": 1,
+  "existingAddOns": []
+}
