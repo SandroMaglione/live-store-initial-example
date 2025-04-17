@@ -7,7 +7,7 @@ import { Schema, State } from "@livestore/livestore";
 const NonNegativeNumber = Schema.Number.pipe(Schema.nonNegative());
 
 // ?: How are `schema` enforced/checked?
-const foods = State.SQLite.table({
+export const foods = State.SQLite.table({
   name: "food",
   // TODO: Make `columns` type safe based on table `columns`
   indexes: [{ columns: ["name"], name: "name", isUnique: true }],
@@ -22,7 +22,7 @@ const foods = State.SQLite.table({
   },
 });
 
-const meals = State.SQLite.table({
+export const meals = State.SQLite.table({
   name: "meal",
   columns: {
     id: State.SQLite.text({ primaryKey: true, schema: Schema.UUID }),
