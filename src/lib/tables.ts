@@ -6,10 +6,10 @@ import { Schema, State } from "@livestore/livestore";
 
 const NonNegativeNumber = Schema.Number.pipe(Schema.nonNegative());
 
-// ?: How are `schema` enforced/checked?
+// ?: How are `schema` enforced/checked? It's throwing a `ParseError`
 export const foods = State.SQLite.table({
   name: "food",
-  // TODO: Make `columns` type safe based on table `columns`
+  // TODO: Make `indexes.columns` type safe based on table `columns`
   indexes: [{ columns: ["name"], name: "name", isUnique: true }],
   columns: {
     id: State.SQLite.text({ primaryKey: true, schema: Schema.UUID }),
