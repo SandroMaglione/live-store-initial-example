@@ -6,13 +6,17 @@ export const allFoodsQuery$ = queryDb(tables.foods.select());
 
 export const allMealsWithFoodsQuery$ = queryDb({
   query: sql`
-    SELECT meal.id, meal.quantity, food.name
+    SELECT meal.id, meal.quantity, food.name, food.calories, food.protein, food.carbs, food.fat
     FROM meal
     LEFT JOIN food ON meal.foodId = food.id
   `,
   schema: tables.meals.rowSchema.pipe(
     Schema.omit("foodId"),
-    Schema.extend(tables.foods.rowSchema.pipe(Schema.pick("name"))),
+    Schema.extend(
+      tables.foods.rowSchema.pipe(
+        Schema.pick("name", "calories", "protein", "carbs", "fat")
+      )
+    ),
     Schema.Array
   ),
 });
