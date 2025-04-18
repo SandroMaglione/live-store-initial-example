@@ -34,3 +34,13 @@ pnpm add @livestore/peer-deps
 > ```sh
 > LiveStore.UnexpectedError: { "cause": RuntimeError: Aborted(CompileError: WebAssembly.instantiate(): expected magic word 00 61 73 6d, found 3c 21 64 6f @+0). Build with -sASSERTIONS for more info., "note": undefined, "payload": undefined }
 >
+
+Fixed by adding `optimizeDeps: { exclude: ["@livestore/wa-sqlite"] }` to `vite.config.js` as well as installing `@livestore/wa-sqlite`:
+
+```sh
+pnpm add @livestore/wa-sqlite
+```
+
+**Completed minimal working setup!**
+
+***
