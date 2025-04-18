@@ -8,4 +8,6 @@ const isProdBuild = process.env.NODE_ENV === "production";
 export default defineConfig({
   plugins: [TanStackRouterVite({ autoCodeSplitting: true }), viteReact()],
   worker: isProdBuild ? { format: "es" } : undefined,
+  // TODO: This required config is missing in the quickstart guide
+  optimizeDeps: { exclude: ["@livestore/wa-sqlite"] },
 });

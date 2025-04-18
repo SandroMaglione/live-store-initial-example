@@ -20,6 +20,9 @@ importers:
       '@livestore/react':
         specifier: 0.3.0-dev.33
         version: 0.3.0-dev.33(ojcnjzjvvi5sgkzch62abc7try)
+      '@livestore/wa-sqlite':
+        specifier: 1.0.5-dev.2
+        version: 1.0.5-dev.2
       '@tanstack/react-router':
         specifier: ^1.114.3
         version: 1.116.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -34,10 +37,10 @@ importers:
         version: 19.1.0(react@19.1.0)
     devDependencies:
       '@types/react':
-        specifier: ^19.0.8
+        specifier: ^19.1.2
         version: 19.1.2
       '@types/react-dom':
-        specifier: ^19.0.3
+        specifier: ^19.0.4
         version: 19.1.2(@types/react@19.1.2)
       '@vitejs/plugin-react':
         specifier: ^4.3.4
@@ -48,9 +51,6 @@ importers:
       vite:
         specifier: ^6.1.0
         version: 6.3.1(@types/node@22.14.1)(tsx@4.19.3)(yaml@2.7.1)
-      vitest:
-        specifier: ^3.0.5
-        version: 3.1.1(@types/node@22.14.1)(jsdom@26.1.0)(tsx@4.19.3)(yaml@2.7.1)
 
 packages:
 

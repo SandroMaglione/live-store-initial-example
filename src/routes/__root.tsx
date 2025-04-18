@@ -14,14 +14,16 @@ const adapter = makePersistedAdapter({
 });
 
 export const Route = createRootRoute({
-  component: () => (
-    <LiveStoreProvider
-      schema={schema}
-      adapter={adapter}
-      batchUpdates={batchUpdates}
-      renderLoading={({ stage }) => <p>{stage}</p>}
-    >
-      <Outlet />
-    </LiveStoreProvider>
-  ),
+  component: () => {
+    return (
+      <LiveStoreProvider
+        schema={schema}
+        adapter={adapter}
+        batchUpdates={batchUpdates}
+        renderLoading={({ stage }) => <p>{stage}</p>}
+      >
+        <Outlet />
+      </LiveStoreProvider>
+    );
+  },
 });
