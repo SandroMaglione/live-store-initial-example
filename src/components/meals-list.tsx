@@ -1,4 +1,5 @@
 import { useStore } from "@livestore/react";
+import { mealUpdated } from "../lib/events";
 import { allMealsWithFoodsQuery$ } from "../lib/queries";
 
 export default function MealsList() {
@@ -9,9 +10,16 @@ export default function MealsList() {
       <h4>Meals</h4>
       {meals.map((meal) => (
         <div key={meal.id}>
-          <p>
-            <span>{meal.name}</span> <span>{meal.quantity}</span>
-          </p>
+          <p>{meal.name}</p>
+          <input
+            type="number"
+            value={meal.quantity}
+            onChange={(e) => {
+              store.commit(
+                mealUpdated({ id: meal.id, quantity: e.target.valueAsNumber })
+              );
+            }}
+          />
           <div>
             <span>
               {(meal.calories * (meal.quantity / 100)).toFixed(2)} calories

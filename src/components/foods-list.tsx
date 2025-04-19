@@ -1,4 +1,5 @@
 import { useStore } from "@livestore/react";
+import { foodUpdated } from "../lib/events";
 import { allFoodsQuery$ } from "../lib/queries";
 
 export default function FoodsList() {
@@ -10,11 +11,49 @@ export default function FoodsList() {
       {foods.map((food) => (
         <div key={food.id}>
           <p>{food.name}</p>
-          <div>
-            <span>{food.calories} calories</span>{" "}
-            <span>{food.protein} protein</span> <span>{food.carbs} carbs</span>{" "}
-            <span>{food.fat} fat</span>
-          </div>
+          <input
+            type="text"
+            value={food.name}
+            onChange={(e) => {
+              store.commit(foodUpdated({ id: food.id, name: e.target.value }));
+            }}
+          />
+          <input
+            type="number"
+            value={food.calories}
+            onChange={(e) => {
+              store.commit(
+                foodUpdated({ id: food.id, calories: e.target.valueAsNumber })
+              );
+            }}
+          />
+          <input
+            type="number"
+            value={food.protein}
+            onChange={(e) => {
+              store.commit(
+                foodUpdated({ id: food.id, protein: e.target.valueAsNumber })
+              );
+            }}
+          />
+          <input
+            type="number"
+            value={food.carbs}
+            onChange={(e) => {
+              store.commit(
+                foodUpdated({ id: food.id, carbs: e.target.valueAsNumber })
+              );
+            }}
+          />
+          <input
+            type="number"
+            value={food.fat}
+            onChange={(e) => {
+              store.commit(
+                foodUpdated({ id: food.id, fat: e.target.valueAsNumber })
+              );
+            }}
+          />
         </div>
       ))}
     </div>

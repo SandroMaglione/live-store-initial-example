@@ -16,4 +16,10 @@ export const materializers = State.SQLite.materializers(events, {
       carbs,
       fat,
     }),
+
+  "v1.FoodUpdated": ({ id, name, calories, protein, carbs, fat }) =>
+    foods.update({ name, calories, protein, carbs, fat }).where({ id }),
+
+  "v1.MealUpdated": ({ id, quantity }) =>
+    meals.update({ quantity }).where({ id }),
 });
