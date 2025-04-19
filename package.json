@@ -10,13 +10,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@effect/platform": "0.80.8",
     "@livestore/adapter-web": "0.3.0-dev.33",
     "@livestore/livestore": "0.3.0-dev.33",
     "@livestore/peer-deps": "0.3.0-dev.33",
+    "@livestore/common": "0.3.0-dev.33",
     "@livestore/react": "0.3.0-dev.33",
     "@livestore/wa-sqlite": "1.0.5-dev.2",
     "@tanstack/react-router": "^1.114.3",
     "@tanstack/router-plugin": "^1.114.3",
+    "effect": "3.14.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
