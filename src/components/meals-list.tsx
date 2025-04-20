@@ -1,13 +1,23 @@
 import { useStore } from "@livestore/react";
 import { mealUpdated } from "../lib/events";
-import { allMealsWithFoodsQuery$ } from "../lib/queries";
+import { allMealsWithFoodsQuery$, filterFoodsQuery$ } from "../lib/queries";
+import { events } from "../lib/schema";
 
 export default function MealsList() {
   const { store } = useStore();
+  const filterFoods = store.useQuery(filterFoodsQuery$);
   const meals = store.useQuery(allMealsWithFoodsQuery$);
   return (
     <div>
       <h4>Meals</h4>
+      <input
+        type="text"
+        placeholder="Filter by food name"
+        value={filterFoods.name}
+        onChange={(e) => {
+          store.commit(events.setFilterFoods({ name: e.target.value }));
+        }}
+      />
       {meals.map((meal) => (
         <div key={meal.id}>
           <p>{meal.name}</p>
