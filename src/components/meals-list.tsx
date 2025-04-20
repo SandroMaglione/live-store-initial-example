@@ -1,7 +1,7 @@
 import { useStore } from "@livestore/react";
 import { mealUpdated } from "../lib/events";
 import {
-  allMealsWithFoodsQuery$,
+  convertedMealsQuery$,
   filterFoodsQuery$,
   totalMacrosQuery$,
 } from "../lib/queries";
@@ -11,15 +11,15 @@ export default function MealsList() {
   const { store } = useStore();
   const filterFoods = store.useQuery(filterFoodsQuery$);
   const totalMacros = store.useQuery(totalMacrosQuery$);
-  const meals = store.useQuery(allMealsWithFoodsQuery$);
+  const meals = store.useQuery(convertedMealsQuery$);
   return (
     <div>
       <h4>Meals</h4>
       <div>
-        <p>Calories: {totalMacros.calories}</p>
-        <p>Protein: {totalMacros.protein}</p>
-        <p>Carbs: {totalMacros.carbs}</p>
-        <p>Fat: {totalMacros.fat}</p>
+        <p>Calories: {totalMacros.calories.toFixed(2)}</p>
+        <p>Protein: {totalMacros.protein.toFixed(2)}</p>
+        <p>Carbs: {totalMacros.carbs.toFixed(2)}</p>
+        <p>Fat: {totalMacros.fat.toFixed(2)}</p>
       </div>
       <input
         type="text"
@@ -42,14 +42,10 @@ export default function MealsList() {
             }}
           />
           <div>
-            <span>
-              {(meal.calories * (meal.quantity / 100)).toFixed(2)} calories
-            </span>{" "}
-            <span>
-              {(meal.protein * (meal.quantity / 100)).toFixed(2)} protein
-            </span>{" "}
-            <span>{(meal.carbs * (meal.quantity / 100)).toFixed(2)} carbs</span>{" "}
-            <span>{(meal.fat * (meal.quantity / 100)).toFixed(2)} fat</span>
+            <span>{meal.calories.toFixed(2)} calories</span>{" "}
+            <span>{meal.protein.toFixed(2)} protein</span>{" "}
+            <span>{meal.carbs.toFixed(2)} carbs</span>{" "}
+            <span>{meal.fat.toFixed(2)} fat</span>
           </div>
         </div>
       ))}
