@@ -1,24 +1,20 @@
 import { useStore } from "@livestore/react";
-import { useActionState } from "react";
 import { allFoodsQuery$ } from "../lib/queries";
 import { events } from "../lib/schema";
 
 export default function InsertMealForm() {
   const { store } = useStore();
   const foods = store.useQuery(allFoodsQuery$);
-  const [_, action] = useActionState(
-    (_: unknown, formData: globalThis.FormData) => {
-      const foodId = formData.get("foodId");
-      const quantity = formData.get("quantity");
-      store.commit(
-        events.mealCreated({
-          foodId: foodId as string,
-          quantity: Number(quantity),
-        })
-      );
-    },
-    null
-  );
+  const action = (formData: globalThis.FormData) => {
+    const foodId = formData.get("foodId");
+    const quantity = formData.get("quantity");
+    store.commit(
+      events.mealCreated({
+        foodId: foodId as string,
+        quantity: Number(quantity),
+      })
+    );
+  };
   return (
     <form action={action}>
       <input type="number" name="quantity" placeholder="Quantity" />
