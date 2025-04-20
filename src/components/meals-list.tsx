@@ -1,15 +1,26 @@
 import { useStore } from "@livestore/react";
 import { mealUpdated } from "../lib/events";
-import { allMealsWithFoodsQuery$, filterFoodsQuery$ } from "../lib/queries";
+import {
+  allMealsWithFoodsQuery$,
+  filterFoodsQuery$,
+  totalMacrosQuery$,
+} from "../lib/queries";
 import { events } from "../lib/schema";
 
 export default function MealsList() {
   const { store } = useStore();
   const filterFoods = store.useQuery(filterFoodsQuery$);
+  const totalMacros = store.useQuery(totalMacrosQuery$);
   const meals = store.useQuery(allMealsWithFoodsQuery$);
   return (
     <div>
       <h4>Meals</h4>
+      <div>
+        <p>Calories: {totalMacros.calories}</p>
+        <p>Protein: {totalMacros.protein}</p>
+        <p>Carbs: {totalMacros.carbs}</p>
+        <p>Fat: {totalMacros.fat}</p>
+      </div>
       <input
         type="text"
         placeholder="Filter by food name"

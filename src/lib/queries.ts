@@ -1,4 +1,5 @@
-import { queryDb, Schema, sql } from "@livestore/livestore";
+import { computed, queryDb, Schema, sql } from "@livestore/livestore";
+import { Number } from "effect";
 import { tables } from "./schema";
 
 // ?: Why the `$` convention?
@@ -24,5 +25,23 @@ export const allMealsWithFoodsQuery$ = queryDb((get) => {
       ),
       Schema.Array
     ),
+  };
+});
+
+export const totalMacrosQuery$ = computed((get) => {
+  const meals = get(allMealsWithFoodsQuery$);
+  return {
+    calories: Number.sumAll(
+      meals.map((meal) => meal.calories * (meal.quantity / 100))
+    ).toFixed(2),
+    protein: Number.sumAll(
+      meals.map((meal) => meal.protein * (meal.quantity / 100))
+    ).toFixed(2),
+    carbs: Number.sumAll(
+      meals.map((meal) => meal.carbs * (meal.quantity / 100))
+    ).toFixed(2),
+    fat: Number.sumAll(
+      meals.map((meal) => meal.fat * (meal.quantity / 100))
+    ).toFixed(2),
   };
 });
