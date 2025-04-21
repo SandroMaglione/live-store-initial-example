@@ -10,10 +10,7 @@ const events = {
 };
 const tables = { ...sqlTables, ...uiDocuments };
 
-const state = State.SQLite.makeState({
-  tables,
-  materializers,
-});
+const state = State.SQLite.makeState({ tables, materializers });
 
 export { events, tables };
 export const schema = makeSchema({ events, state });

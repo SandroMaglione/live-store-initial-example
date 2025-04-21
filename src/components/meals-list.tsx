@@ -32,6 +32,7 @@ export default function MealsList() {
       {meals.map((meal) => (
         <div key={meal.id}>
           <p>{meal.name}</p>
+          <p>{meal.date}</p>
           <input
             type="number"
             value={meal.quantity}

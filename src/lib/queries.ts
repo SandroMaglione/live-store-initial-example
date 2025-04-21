@@ -1,4 +1,4 @@
-import { computed, queryDb, Schema, sql } from "@livestore/livestore";
+import { computed, queryDb, Schema, signal, sql } from "@livestore/livestore";
 import { Number } from "effect";
 import { tables } from "./schema";
 import { convertMacroQuantity } from "./utils";
@@ -8,14 +8,26 @@ export const allFoodsQuery$ = queryDb(tables.foods.select());
 
 export const filterFoodsQuery$ = queryDb(tables.filterFoodsDocument.get());
 
+export const dateSearchParamSignal$ = signal(
+  (() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    console.log(searchParams);
+    const date = searchParams.get("date");
+    return date!; // TODO: Not that great
+  })()
+);
+
 const allMealsWithFoodsQuery$ = queryDb((get) => {
+  const date = get(dateSearchParamSignal$);
+  console.log("date", date);
   const { name } = get(filterFoodsQuery$);
   return {
     query: sql`
-    SELECT meal.id, meal.quantity, food.name, food.calories, food.protein, food.carbs, food.fat
+    SELECT meal.id, meal.date, meal.quantity, food.name, food.calories, food.protein, food.carbs, food.fat
     FROM meal
     INNER JOIN food ON meal.foodId = food.id
-    ${name ? `WHERE food.name LIKE '%${name}%'` : ``}
+    WHERE meal.date = '${date}'
+    ${name ? `AND food.name LIKE '%${name}%'` : ``}
   `,
     schema: Schema.Array(
       tables.meals.rowSchema.pipe(
@@ -36,6 +48,7 @@ export const convertedMealsQuery$ = computed((get) => {
     id: meal.id,
     name: meal.name,
     quantity: meal.quantity,
+    date: meal.date,
     calories: convertMacroQuantity({
       quantity: meal.quantity,
       macro: meal.calories,

@@ -28,5 +28,6 @@ export const meals = State.SQLite.table({
     id: State.SQLite.text({ primaryKey: true, schema: Schema.UUID }),
     foodId: State.SQLite.text({ schema: Schema.UUID }),
     quantity: State.SQLite.integer({ default: 0, schema: NonNegativeNumber }),
+    date: State.SQLite.text(),
   },
 });

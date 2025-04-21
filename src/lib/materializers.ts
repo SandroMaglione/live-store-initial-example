@@ -4,8 +4,8 @@ import { foods, meals } from "./tables";
 
 // ?: Why the name `materializers`? What about `actions`?
 export const materializers = State.SQLite.materializers(events, {
-  "v1.MealCreated": ({ foodId, quantity }) =>
-    meals.insert({ id: crypto.randomUUID(), foodId, quantity }),
+  "v1.MealCreated": ({ foodId, quantity, date }) =>
+    meals.insert({ id: crypto.randomUUID(), foodId, quantity, date }),
 
   "v1.FoodCreated": ({ name, calories, protein, carbs, fat }) =>
     foods.insert({
