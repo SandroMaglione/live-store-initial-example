@@ -8,7 +8,6 @@ import LiveStoreWorker from "../worker?worker";
 
 // TODO: The following command resets the database `await (await navigator.storage.getDirectory()).remove({ recursive: true });`
 
-// ?: Is there a way to make less configurations necessary (are workers required)?
 const adapter = makePersistedAdapter({
   storage: { type: "opfs" },
   sharedWorker: LiveStoreSharedWorker,

@@ -2,11 +2,8 @@ import { useStore } from "@livestore/react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { DateTime, Effect, Schema } from "effect";
 import { useEffect } from "react";
-import FoodsList from "../components/foods-list";
-import InsertFoodForm from "../components/insert-food-form";
-import InsertMealForm from "../components/insert-meal-form";
-import MealsList from "../components/meals-list";
-import { dateSearchParamSignal$ } from "../lib/queries";
+import { convertedMealsQuery$, dateSearchParamSignal$ } from "../lib/queries";
+import { events } from "../lib/schema";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -28,6 +25,7 @@ export const Route = createFileRoute("/")({
 function App() {
   const { date } = Route.useSearch();
   const { store } = useStore();
+  const meals = store.useQuery(convertedMealsQuery$);
 
   useEffect(() => {
     console.log("setting date", date);
@@ -64,19 +62,21 @@ function App() {
         </Link>
       </div>
 
-      <InsertFoodForm />
+      <button
+        type="button"
+        onClick={() => store.commit(events.mealCreated({ date }))}
+      >
+        Insert meal
+      </button>
 
-      <hr />
-
-      <InsertMealForm />
-
-      <hr />
-
-      <FoodsList />
-
-      <hr />
-
-      <MealsList />
+      <div>
+        <h4>Meals</h4>
+        {meals.map((meal) => (
+          <div key={meal.id}>
+            <p>{meal.date}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
