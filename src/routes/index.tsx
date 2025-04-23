@@ -1,11 +1,13 @@
 import { useStore } from "@livestore/react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { DateTime, Effect, Schema } from "effect";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 import FoodsList from "../components/foods-list";
 import InsertFoodForm from "../components/insert-food-form";
 import InsertMealForm from "../components/insert-meal-form";
 import MealsList from "../components/meals-list";
+import { Hr } from "../components/ui/hr";
 import { dateSearchParamSignal$ } from "../lib/queries";
 
 export const Route = createFileRoute("/")({
@@ -34,8 +36,8 @@ function App() {
   }, [date]);
 
   return (
-    <div>
-      <div>
+    <div className="flex flex-col gap-y-8">
+      <div className="flex items-center justify-between gap-4">
         <Link
           to="."
           search={() => ({
@@ -46,9 +48,9 @@ function App() {
             ),
           })}
         >
-          Prev
+          <ArrowLeft />
         </Link>
-        <p>{date}</p>
+        <p className="text-2xl font-bold">{date}</p>
         <Link
           to="."
           search={() => ({
@@ -59,21 +61,21 @@ function App() {
             ),
           })}
         >
-          Next
+          <ArrowRight />
         </Link>
       </div>
 
       <InsertFoodForm />
 
-      <hr />
+      <Hr />
 
       <InsertMealForm />
 
-      <hr />
+      <Hr />
 
       <FoodsList />
 
-      <hr />
+      <Hr />
 
       <MealsList />
     </div>

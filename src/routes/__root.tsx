@@ -24,7 +24,9 @@ export const Route = createRootRoute({
         batchUpdates={batchUpdates}
         renderLoading={({ stage }) => <p>{stage}</p>}
       >
-        <Outlet />
+        <div className="mx-auto max-w-3xl mt-8 mb-24">
+          <Outlet />
+        </div>
       </LiveStoreProvider>
     );
   },

@@ -2,6 +2,8 @@ import { useStore } from "@livestore/react";
 import { useSearch } from "@tanstack/react-router";
 import { allFoodsQuery$ } from "../lib/queries";
 import { events } from "../lib/schema";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 export default function InsertMealForm() {
   const { date } = useSearch({ from: "/" });
@@ -22,17 +24,17 @@ export default function InsertMealForm() {
   };
 
   return (
-    <form action={action}>
-      <input type="number" name="quantity" placeholder="Quantity" />
-      <div>
+    <form action={action} className="flex flex-col gap-y-2">
+      <Input type="number" name="quantity" placeholder="Quantity" />
+      <div className="flex flex-wrap gap-4">
         {foods.map((food) => (
-          <label key={food.id}>
+          <label key={food.id} className="flex items-center gap-x-1">
             <input type="radio" name="foodId" value={food.id} />
-            {food.name}
+            <span className="text-sm font-light">{food.name}</span>
           </label>
         ))}
       </div>
-      <button type="submit">Add</button>
+      <Button type="submit">Insert meal</Button>
     </form>
   );
 }
