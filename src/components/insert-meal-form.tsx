@@ -14,6 +14,7 @@ export default function InsertMealForm() {
     store.commit(
       events.mealCreated({
         date,
+        id: crypto.randomUUID(),
         foodId: foodId as string,
         quantity: Number(quantity),
       })

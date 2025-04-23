@@ -11,7 +11,6 @@ export const filterFoodsQuery$ = queryDb(tables.filterFoodsDocument.get());
 export const dateSearchParamSignal$ = signal(
   (() => {
     const searchParams = new URLSearchParams(window.location.search);
-    console.log(searchParams);
     const date = searchParams.get("date");
     return date!; // TODO: Not that great
   })()
@@ -19,7 +18,6 @@ export const dateSearchParamSignal$ = signal(
 
 const allMealsWithFoodsQuery$ = queryDb((get) => {
   const date = get(dateSearchParamSignal$);
-  console.log("date", date);
   const { name } = get(filterFoodsQuery$);
   return {
     query: sql`

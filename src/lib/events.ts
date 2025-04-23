@@ -19,6 +19,7 @@ export const mealCreated = Events.synced({
   // ?: Why `v1` is necessary? Can this be type safe instead of inside a `string`?
   name: "v1.MealCreated",
   schema: Schema.Struct({
+    id: Schema.UUID,
     foodId: Schema.String,
     quantity: Schema.Number,
     date: Schema.String,

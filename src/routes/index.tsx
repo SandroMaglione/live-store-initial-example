@@ -30,7 +30,6 @@ function App() {
   const { store } = useStore();
 
   useEffect(() => {
-    console.log("setting date", date);
     store.setSignal(dateSearchParamSignal$, date);
   }, [date]);
 
